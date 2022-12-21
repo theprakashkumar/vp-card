@@ -3,17 +3,23 @@ import { useContext } from "react";
 import Cards from "../Cards/Cards";
 import MainHeader from "./MainHeader";
 import { DataContext } from "../../context/DataProvider";
+import Filter from "../Filter/Filter";
 
 const Main = () => {
     const { allCards, isCardLoading } = useContext(DataContext);
 
-    const yourCards = allCards?.filter((card) => card.owner_id === 8);
-    const blockedCards = allCards?.filter((card) => card.status === "blocked");
+    const yourCards =
+        !isCardLoading && allCards.filter((card) => card.owner_id === 8);
+    const blockedCards =
+        !isCardLoading && allCards.filter((card) => card.status === "blocked");
 
     return (
         <div>
             <MainHeader />
-            {!isCardLoading && (
+            <Filter />
+            {isCardLoading ? (
+                <div>Loading</div>
+            ) : (
                 <Routes>
                     <Route path="/your" element={<Cards card={yourCards} />} />
                     <Route path="/" element={<Cards card={allCards} />} />

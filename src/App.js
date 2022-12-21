@@ -3,13 +3,16 @@ import { BrowserRouter } from "react-router-dom";
 import Navbar from "./component/Navbar/Navbar";
 import Main from "./component/Main/Main";
 import { DataProvider } from "./context/DataProvider";
+import { FilterProvider } from "./context/FilterContext";
 
 function App() {
     return (
         <BrowserRouter>
             <DataProvider>
-                <Navbar />
-                <Main />
+                <FilterProvider>
+                    <Navbar />
+                    <Main />
+                </FilterProvider>
             </DataProvider>
         </BrowserRouter>
     );

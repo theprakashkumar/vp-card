@@ -1,15 +1,28 @@
 import { Routes, Route } from "react-router-dom";
+import { useContext } from "react";
 import Cards from "../Cards/Cards";
 import MainHeader from "./MainHeader";
+import { DataContext } from "../../context/DataProvider";
+
 const Main = () => {
+    const { allCards, isCardLoading } = useContext(DataContext);
+
+    const yourCards = allCards?.filter((card) => card.owner_id === 8);
+    const blockedCards = allCards?.filter((card) => card.status === "blocked");
+
     return (
         <div>
             <MainHeader />
-            <Routes>
-                <Route path="/your" element={<Cards cardtype="Your" />} />
-                <Route path="/" element={<Cards cardtype="all" />} />
-                <Route path="/blocked" element={<Cards cardtype="bloked" />} />
-            </Routes>
+            {!isCardLoading && (
+                <Routes>
+                    <Route path="/your" element={<Cards card={yourCards} />} />
+                    <Route path="/" element={<Cards card={allCards} />} />
+                    <Route
+                        path="/blocked"
+                        element={<Cards card={blockedCards} />}
+                    />
+                </Routes>
+            )}
         </div>
     );
 };

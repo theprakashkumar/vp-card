@@ -1,0 +1,13 @@
+.filter_button {
+    background-color: #f8f8f8;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 22px;
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    font-weight: 500;
+    border-radius: 3px;
+}

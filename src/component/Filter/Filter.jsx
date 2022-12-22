@@ -1,3 +1,4 @@
+import "./Filter.css";
 import { useState } from "react";
 import FilterModal from "./FilterModal";
 import { BsFilter } from "react-icons/bs";

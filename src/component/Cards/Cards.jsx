@@ -40,11 +40,6 @@ const Cards = ({ card }) => {
                 dataLength={card}
                 next={getCards}
                 hasMore={hasMoreCards}
-                loader={
-                    <div className="cards_message">
-                        <h4>Loading</h4>
-                    </div>
-                }
                 endMessage={
                     searchResult.length !== 0 && (
                         <div className="cards_message">

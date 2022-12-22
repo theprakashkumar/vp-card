@@ -7,6 +7,7 @@ export const DataProvider = ({ children }) => {
     const [isCardLoading, setIsCardLoading] = useState(true);
     const [allCards, setAllCards] = useState({});
     const [currentTab, setCurrentTab] = useState("all");
+    const [allUsers, setAllUsers] = useState([]);
 
     const setTab = (curTab) => {
         setCurrentTab(curTab);
@@ -16,15 +17,22 @@ export const DataProvider = ({ children }) => {
             const cards = await axios.get(
                 "https://raw.githubusercontent.com/ThePrakashKumar/vp-card-data/main/data.json"
             );
-            console.log(cards.data.data);
             setAllCards(cards.data.data);
             setIsCardLoading(false);
         };
         getCards();
     }, []);
+
+    useEffect(() => {
+        if (!isCardLoading) {
+            const userList = allCards.map((card) => card.card_holder);
+            console.log({ userList });
+            setAllUsers([...new Set(userList)]);
+        }
+    }, [allCards]);
     return (
         <DataContext.Provider
-            value={{ allCards, isCardLoading, currentTab, setTab }}
+            value={{ allCards, isCardLoading, currentTab, setTab, allUsers }}
         >
             {children}
         </DataContext.Provider>

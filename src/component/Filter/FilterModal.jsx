@@ -1,8 +1,10 @@
 import { useState, useContext } from "react";
 import "./FilterModal.css";
 import { FilterContext } from "../../context/FilterContext";
+import { DataContext } from "../../context/DataProvider";
 
 const FilterModal = () => {
+    const { allUsers } = useContext(DataContext);
     const { setContextFilters } = useContext(FilterContext);
     const [filters, setFilters] = useState({
         category: [],
@@ -98,8 +100,10 @@ const FilterModal = () => {
                         onChange={(e) => handleSelect(e)}
                         className="filter-modal_cardholder-container_dropdown"
                     >
-                        <option value="Anish">Anish</option>
-                        <option value="Prakash">Prakash</option>
+                        <option value={""}>All Cardholder</option>
+                        {allUsers.map((user) => (
+                            <option value={user}>{user}</option>
+                        ))}
                     </select>
                 </div>
 

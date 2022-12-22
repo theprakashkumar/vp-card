@@ -4,6 +4,7 @@ import Cards from "../Cards/Cards";
 import MainHeader from "./MainHeader";
 import { DataContext } from "../../context/DataProvider";
 import Filter from "../Filter/Filter";
+import Loader from "../Loader/Loader";
 
 const Main = () => {
     const { allCards, isCardLoading } = useContext(DataContext);
@@ -18,7 +19,7 @@ const Main = () => {
             <MainHeader />
             <Filter />
             {isCardLoading ? (
-                <div>Loading</div>
+                <Loader />
             ) : (
                 <Routes>
                     <Route path="/your" element={<Cards card={yourCards} />} />

@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const Cards = ({ card }) => {
     const { contextFilters, searchText } = useContext(FilterContext);
-    const { cardView, page, getCards, hasMoreCards } = useContext(DataContext);
+    const { cardView, getCards, hasMoreCards } = useContext(DataContext);
 
     const filterCards = (cards) => {
         return cards
@@ -50,6 +50,7 @@ const Cards = ({ card }) => {
                 }
             >
                 <div className={`cards cards-${cardView}`}>
+                    {}
                     {searchResult.map((card) => (
                         <Card
                             name={card.name}

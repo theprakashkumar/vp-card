@@ -5,9 +5,13 @@ import { DataContext } from "../../context/DataProvider";
 import { BsGrid, BsViewStacked } from "react-icons/bs";
 
 const MainHeader = () => {
-    const { currentTab, setTab } = useContext(DataContext);
+    const { currentTab, setTab, cardView, setCardView } =
+        useContext(DataContext);
     const onClickHandler = (data) => {
         setTab(data);
+    };
+    const handleCardView = (view) => {
+        setCardView(view);
     };
     return (
         <div className="main-header">
@@ -43,8 +47,22 @@ const MainHeader = () => {
                 </Link>
             </div>
             <div className="main-header_right">
-                <BsGrid className="main-header_right_icon" />
-                <BsViewStacked className="main-header_right_icon" />
+                <BsGrid
+                    className={`main-header_right_icon ${
+                        cardView === "grid"
+                            ? "main-header_right_icon-active"
+                            : ""
+                    }`}
+                    onClick={() => handleCardView("grid")}
+                />
+                <BsViewStacked
+                    className={`main-header_right_icon ${
+                        cardView === "flex"
+                            ? "main-header_right_icon-active"
+                            : ""
+                    }`}
+                    onClick={() => handleCardView("flex")}
+                />
             </div>
         </div>
     );

@@ -1,9 +1,12 @@
+import "./Cards.css";
 import { useContext, useState } from "react";
+import { DataContext } from "../../context/DataProvider";
 import { FilterContext } from "../../context/FilterContext";
 import Card from "../Card/Card";
 
 const Cards = ({ card }) => {
     const { contextFilters, searchText } = useContext(FilterContext);
+    const { cardView } = useContext(DataContext);
 
     const filterCards = (cards) => {
         return cards
@@ -31,7 +34,7 @@ const Cards = ({ card }) => {
     const searchResult = searchCards(filteredCards);
 
     return (
-        <div>
+        <div className={`cards cards-${cardView}`}>
             {searchResult.map((card) => (
                 <Card
                     name={card.name}

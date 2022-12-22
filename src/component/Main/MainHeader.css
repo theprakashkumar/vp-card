@@ -45,4 +45,15 @@
 
 .main-header_right_icon {
     font-size: 1.5rem;
+    color: var(--text-color-light);
+}
+
+@media screen and (max-width: 700px) {
+    .main-header_right_icon {
+        display: none;
+    }
+}
+
+.main-header_right_icon-active {
+    color: var(--text-color);
 }

@@ -8,6 +8,7 @@ export const DataProvider = ({ children }) => {
     const [allCards, setAllCards] = useState({});
     const [currentTab, setCurrentTab] = useState("all");
     const [allUsers, setAllUsers] = useState([]);
+    const [cardView, setCardView] = useState("grid");
 
     const setTab = (curTab) => {
         setCurrentTab(curTab);
@@ -32,7 +33,15 @@ export const DataProvider = ({ children }) => {
     }, [allCards]);
     return (
         <DataContext.Provider
-            value={{ allCards, isCardLoading, currentTab, setTab, allUsers }}
+            value={{
+                allCards,
+                isCardLoading,
+                currentTab,
+                setTab,
+                allUsers,
+                cardView,
+                setCardView,
+            }}
         >
             {children}
         </DataContext.Provider>

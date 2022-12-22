@@ -3,8 +3,7 @@ import { FilterContext } from "../../context/FilterContext";
 import Card from "../Card/Card";
 
 const Cards = ({ card }) => {
-    const { contextFilters } = useContext(FilterContext);
-    const [searchText, setSearchText] = useState("");
+    const { contextFilters, searchText } = useContext(FilterContext);
 
     const filterCards = (cards) => {
         return cards
@@ -33,13 +32,6 @@ const Cards = ({ card }) => {
 
     return (
         <div>
-            <input
-                type="text"
-                value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
-                placeholder="Search Card"
-            />
-
             {searchResult.map((card) => (
                 <Card
                     name={card.name}

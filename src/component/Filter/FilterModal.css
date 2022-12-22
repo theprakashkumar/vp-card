@@ -1,7 +1,7 @@
 .filter-modal {
     position: absolute;
-    top: 30%;
-    right: 5%;
+    top: 43%;
+    right: 3%;
     width: 35rem;
     box-shadow: 0 0 3px var(--shadow-color);
     color: var(--text-color);

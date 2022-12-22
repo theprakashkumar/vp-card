@@ -7,8 +7,16 @@ export const FilterProvider = ({ children }) => {
         category: [],
         cardholder: "",
     });
+    const [searchText, setSearchText] = useState("");
     return (
-        <FilterContext.Provider value={{ contextFilters, setContextFilters }}>
+        <FilterContext.Provider
+            value={{
+                contextFilters,
+                setContextFilters,
+                searchText,
+                setSearchText,
+            }}
+        >
             {children}
         </FilterContext.Provider>
     );

@@ -1,0 +1,9 @@
+.search-modal input {
+    background: #f8f8f8;
+    border: none;
+    box-shadow: 0 0 3px 0 var(--shadow-color);
+    font-family: inherit;
+    font-size: 1.3rem;
+    padding: 5px;
+    outline: none;
+}

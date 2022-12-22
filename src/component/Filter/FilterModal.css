@@ -1,0 +1,89 @@
+.filter-modal {
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    width: 35rem;
+    box-shadow: 0 0 3px var(--shadow-color);
+    color: var(--text-color);
+}
+
+.filter-modal_title {
+    padding: 12px 0px 12px 10px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 100%;
+    box-shadow: 0 1px 2px var(--shadow-color);
+}
+
+.filter-modal_filter-container {
+    padding: 20px;
+}
+
+.filter-modal_type-container_title {
+    font-size: 1.3rem;
+    padding-bottom: 10px;
+}
+
+.filter-modal_type-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-modal_type-container-checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.filter-modal_type-container_type {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-modal_type-container_type label {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.filter-modal_cardholder-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-modal_cardholder-container_title {
+    font-size: 1.3rem;
+    padding-bottom: 10px;
+}
+
+.filter-modal_cardholder-container_dropdown {
+    background: #f8f8f8;
+    font-family: inherit;
+    padding: 8px;
+    border: none;
+}
+
+.filter-modal_button-container {
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-modal_button-container_button {
+    padding: 10px 5rem;
+    color: #fff;
+    border-radius: 5px;
+    font-family: inherit;
+    background-color: #fff;
+    box-shadow: 0 0 3px var(--shadow-color);
+    cursor: pointer;
+    color: var(--text-color);
+    border: none;
+}
+
+.filter-modal_button-container_button-apply {
+    background-color: var(--theme-color);
+    color: #fff;
+}

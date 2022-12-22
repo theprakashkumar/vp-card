@@ -40,37 +40,46 @@ const Cards = ({ card }) => {
                 dataLength={card}
                 next={getCards}
                 hasMore={hasMoreCards}
-                loader={<h4>Loading</h4>}
+                loader={
+                    <div className="cards_message">
+                        <h4>Loading</h4>
+                    </div>
+                }
                 endMessage={
                     searchResult.length !== 0 && (
-                        <div className="cards_end-message">
+                        <div className="cards_message">
                             <h4>You Have Seen All</h4>
                         </div>
                     )
                 }
             >
-                <div className={`cards cards-${cardView}`}>
-                    {}
-                    {searchResult.map((card) => (
-                        <Card
-                            name={card.name}
-                            budgetName={card.budget_name}
-                            cardholder={card.card_holder}
-                            cardType={card.card_type}
-                            expiry={card.expiry}
-                            limit={card.limit}
-                            ownerId={card.owner_id}
-                            spent={{
-                                value: card.spent.value,
-                                currency: card.spent.currency,
-                            }}
-                            availableToSpend={{
-                                value: card.available_to_spend.value,
-                                currency: card.available_to_spend.currency,
-                            }}
-                        />
-                    ))}
-                </div>
+                {searchResult.length !== 0 ? (
+                    <div className={`cards cards-${cardView}`}>
+                        {searchResult.map((card) => (
+                            <Card
+                                name={card.name}
+                                budgetName={card.budget_name}
+                                cardholder={card.card_holder}
+                                cardType={card.card_type}
+                                expiry={card.expiry}
+                                limit={card.limit}
+                                ownerId={card.owner_id}
+                                spent={{
+                                    value: card.spent.value,
+                                    currency: card.spent.currency,
+                                }}
+                                availableToSpend={{
+                                    value: card.available_to_spend.value,
+                                    currency: card.available_to_spend.currency,
+                                }}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="cards_nothing-found">
+                        <h4>Nothing Matches!</h4>
+                    </div>
+                )}
             </InfiniteScroll>
         </div>
     );

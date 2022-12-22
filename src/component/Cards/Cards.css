@@ -30,9 +30,17 @@
     gap: 2rem;
 }
 
-.cards_end-message {
+.cards_message {
     text-align: center;
     font-size: 1.5rem;
     color: var(--theme-color);
+    margin-top: 20px;
     margin-bottom: 18px;
+}
+
+.cards_nothing-found {
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--theme-color);
+    margin-top: 18px;
 }

@@ -5,6 +5,15 @@
     width: 35rem;
     box-shadow: 0 0 3px var(--shadow-color);
     color: var(--text-color);
+    background-color: #fff;
+}
+
+@media screen and (max-width: 645px) {
+    .filter-modal {
+        top: 50%;
+        right: 3%;
+        width: 30rem;
+    }
 }
 
 .filter-modal_title {

@@ -5,6 +5,12 @@
     justify-content: space-between;
 }
 
+@media screen and (max-width: 750px) {
+    .navbar {
+        padding: 2rem 3rem;
+    }
+}
+
 .navbar_left {
     display: flex;
     align-items: center;
@@ -17,14 +23,19 @@
 
 .navbar_left_link {
     background-color: #f1f1f1;
-    padding: 0 3px;
     color: #1178eb;
     display: flex;
     align-items: center;
     gap: 1rem;
     font-size: 1.4rem;
     border-radius: 4px;
-    padding: 2px;
+    padding: 3px 5px;
+}
+
+@media screen and (max-width: 650px) {
+    .navbar_left_link_text {
+        display: none;
+    }
 }
 
 .navbar_right_button {
@@ -40,7 +51,17 @@
     font-weight: 500;
 }
 
+@media screen and (max-width: 550px) {
+    .navbar_left_brand {
+        font-size: 2.2rem;
+    }
+
+    .navbar_right_button {
+        padding: 7px;
+        font-size: 1.2rem;
+    }
+}
+
 .navbar_right_button:hover {
     box-shadow: 0 0 5px #d1d5db;
 }
-

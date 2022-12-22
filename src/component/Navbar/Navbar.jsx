@@ -7,8 +7,8 @@ const Navbar = () => {
             <div className="navbar_left">
                 <h1 className="navbar_left_brand">Virtual cards</h1>
                 <a href="#" className="navbar_left_link">
-                    <FiVideo />
-                    <span>Learn more</span>
+                    <FiVideo className="navbar_left_link_icon" />
+                    <span className="navbar_left_link_text">Learn more</span>
                 </a>
             </div>
             <div className="navbar_right">

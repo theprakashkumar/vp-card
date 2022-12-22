@@ -3,10 +3,11 @@ import { useContext, useState } from "react";
 import { DataContext } from "../../context/DataProvider";
 import { FilterContext } from "../../context/FilterContext";
 import Card from "../Card/Card";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Cards = ({ card }) => {
     const { contextFilters, searchText } = useContext(FilterContext);
-    const { cardView } = useContext(DataContext);
+    const { cardView, page, getCards, hasMoreCards } = useContext(DataContext);
 
     const filterCards = (cards) => {
         return cards
@@ -34,26 +35,42 @@ const Cards = ({ card }) => {
     const searchResult = searchCards(filteredCards);
 
     return (
-        <div className={`cards cards-${cardView}`}>
-            {searchResult.map((card) => (
-                <Card
-                    name={card.name}
-                    budgetName={card.budget_name}
-                    cardholder={card.card_holder}
-                    cardType={card.card_type}
-                    expiry={card.expiry}
-                    limit={card.limit}
-                    ownerId={card.owner_id}
-                    spent={{
-                        value: card.spent.value,
-                        currency: card.spent.currency,
-                    }}
-                    availableToSpend={{
-                        value: card.available_to_spend.value,
-                        currency: card.available_to_spend.currency,
-                    }}
-                />
-            ))}
+        <div>
+            <InfiniteScroll
+                dataLength={card}
+                next={getCards}
+                hasMore={hasMoreCards}
+                loader={<h4>Loading</h4>}
+                endMessage={
+                    searchResult.length !== 0 && (
+                        <div className="cards_end-message">
+                            <h4>You Have Seen All</h4>
+                        </div>
+                    )
+                }
+            >
+                <div className={`cards cards-${cardView}`}>
+                    {searchResult.map((card) => (
+                        <Card
+                            name={card.name}
+                            budgetName={card.budget_name}
+                            cardholder={card.card_holder}
+                            cardType={card.card_type}
+                            expiry={card.expiry}
+                            limit={card.limit}
+                            ownerId={card.owner_id}
+                            spent={{
+                                value: card.spent.value,
+                                currency: card.spent.currency,
+                            }}
+                            availableToSpend={{
+                                value: card.available_to_spend.value,
+                                currency: card.available_to_spend.currency,
+                            }}
+                        />
+                    ))}
+                </div>
+            </InfiniteScroll>
         </div>
     );
 };

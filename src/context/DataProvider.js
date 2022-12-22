@@ -5,22 +5,37 @@ export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
     const [isCardLoading, setIsCardLoading] = useState(true);
-    const [allCards, setAllCards] = useState({});
+    const [allCards, setAllCards] = useState([]);
     const [currentTab, setCurrentTab] = useState("all");
     const [allUsers, setAllUsers] = useState([]);
     const [cardView, setCardView] = useState("grid");
+    const [page, setPage] = useState(1);
+    const [hasMoreCards, setHasMoreCards] = useState(true);
 
     const setTab = (curTab) => {
         setCurrentTab(curTab);
     };
-    useEffect(() => {
-        const getCards = async () => {
-            const cards = await axios.get(
-                "https://raw.githubusercontent.com/ThePrakashKumar/vp-card-data/main/data.json"
+
+    const getCards = async () => {
+        try {
+            const response = await axios.get(
+                `https://raw.githubusercontent.com/ThePrakashKumar/vp-card-data/main/data${page}.json`
             );
-            setAllCards(cards.data.data);
-            setIsCardLoading(false);
-        };
+            if (response) {
+                if (page === 3) {
+                    setHasMoreCards(false);
+                }
+                setAllCards([...allCards, ...response.data.data]);
+                setIsCardLoading(false);
+
+                setPage((page) => setPage(page + 1));
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
         getCards();
     }, []);
 
@@ -41,6 +56,8 @@ export const DataProvider = ({ children }) => {
                 allUsers,
                 cardView,
                 setCardView,
+                getCards,
+                hasMoreCards,
             }}
         >
             {children}

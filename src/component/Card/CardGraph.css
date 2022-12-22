@@ -11,5 +11,5 @@
 }
 
 .card-graph_available {
-    background-color: rgb(85, 197, 85);
+    background-color: var(--green);
 }

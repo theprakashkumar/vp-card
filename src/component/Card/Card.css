@@ -1,0 +1,97 @@
+.card {
+    box-shadow: 0 0 3px 0 var(--shadow-color);
+    padding: 2rem;
+}
+
+.card_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card_header_left {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_header_name {
+    font-size: 2rem;
+}
+
+.card_header_cardholder {
+    display: flex;
+}
+
+.card_header_cardholder_text {
+    font-size: 1.2rem;
+}
+
+.card_header_cardHolder_dot {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.card_header_right_icon {
+    font-size: 3rem;
+    color: var(--theme-color);
+    background-color: pink;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.card_details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3px;
+    padding-bottom: 5px;
+}
+
+.card_details_cardType {
+    color: var(--text-color-light);
+    font-size: 1.2rem;
+    border: 1px solid var(--text-color-light);
+    padding: 0.1px 5px;
+    border-radius: 5px;
+}
+
+.card_details_date {
+    font-size: 1.3rem;
+}
+
+.card_credit-details_spent {
+    display: flex;
+    align-items: center;
+}
+
+.card_credit-details {
+    margin-top: 5px;
+}
+
+.card_credit-details_spend_dot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.card_credit-details_spend_dot-pink {
+    background-color: var(--theme-color);
+}
+.card_credit-details_spend_dot-green {
+    background-color: var(--green);
+}
+.card_credit-details_text {
+    font-size: 1.3rem;
+}
+
+.card_credit-details_text-title {
+    display: inline-block;
+    margin-right: auto;
+}
+
+.card_credit-details_available {
+    display: flex;
+    align-items: center;
+}

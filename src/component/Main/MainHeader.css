@@ -49,8 +49,13 @@
 }
 
 @media screen and (max-width: 700px) {
-    .main-header_right_icon {
+    .main-header_right {
         display: none;
+    }
+
+    .main-header_left {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 

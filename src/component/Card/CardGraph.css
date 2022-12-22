@@ -1,0 +1,15 @@
+.card-graph {
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+.card-graph_spent {
+    background-color: var(--theme-color);
+}
+
+.card-graph_available {
+    background-color: rgb(85, 197, 85);
+}

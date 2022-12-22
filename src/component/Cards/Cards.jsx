@@ -35,11 +35,20 @@ const Cards = ({ card }) => {
             {searchResult.map((card) => (
                 <Card
                     name={card.name}
-                    budget_name={card.budget_name}
-                    owner_id={card.owner_id}
-                    card_type={card.status}
-                    c_type={card.card_type}
-                    card_holder={card.card_holder}
+                    budgetName={card.budget_name}
+                    cardholder={card.card_holder}
+                    cardType={card.card_type}
+                    expiry={card.expiry}
+                    limit={card.limit}
+                    ownerId={card.owner_id}
+                    spent={{
+                        value: card.spent.value,
+                        currency: card.spent.currency,
+                    }}
+                    availableToSpend={{
+                        value: card.available_to_spend.value,
+                        currency: card.available_to_spend.currency,
+                    }}
                 />
             ))}
         </div>
